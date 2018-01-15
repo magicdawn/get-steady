@@ -1,17 +1,20 @@
 {
-  "name": "steady",
+  "name": "get-steady",
   "version": "0.0.1",
   "description": "A simple `throttle` implemantation",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test-cover": "istanbul cover _mocha -- -u exports",
+    "report-cover": "codecov"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/magicdawn/steady.git"
+    "url": "git+https://github.com/magicdawn/steady.git"
   },
   "keywords": [
     "throttle",
+    "steady",
     "debounce"
   ],
   "author": "magicdawn",
@@ -19,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/magicdawn/steady/issues"
   },
-  "homepage": "https://github.com/magicdawn/steady#readme"
+  "homepage": "https://github.com/magicdawn/steady#readme",
+  "devDependencies": {
+    "codecov": "^2.3.0",
+    "eslint": "^4.8.0",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^3.5.3",
+    "should": "^13.1.0"
+  }
 }
