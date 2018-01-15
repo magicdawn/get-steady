@@ -10,19 +10,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/magicdawn/steady.git"
+    "url": "git+https://github.com/magicdawn/get-steady.git"
   },
   "keywords": [
     "throttle",
-    "steady",
+    "get-steady",
     "debounce"
   ],
   "author": "magicdawn",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/magicdawn/steady/issues"
+    "url": "https://github.com/magicdawn/get-steady/issues"
   },
-  "homepage": "https://github.com/magicdawn/steady#readme",
+  "homepage": "https://github.com/magicdawn/get-steady#readme",
   "devDependencies": {
     "codecov": "^2.3.0",
     "eslint": "^4.8.0",
