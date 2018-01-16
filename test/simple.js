@@ -6,7 +6,7 @@ describe('Simple Test', function() {
   it('it works', function(done) {
     const start = Date.now()
     let seq = 1
-    const maxI = 30
+    const maxI = 23
 
     // invoke
     const fn = steady(i => {
@@ -16,7 +16,9 @@ describe('Simple Test', function() {
       seq++
 
       // finish test
-      if (i === maxI - 1) done()
+      if (i === maxI - 1) {
+        setTimeout(done, 100)
+      }
     }, 100)
 
     // call
@@ -26,6 +28,9 @@ describe('Simple Test', function() {
         fn(i)
         await sleep(20)
       }
+
+      // wait stopCheck
+      await sleep(100)
     })()
   })
 })
