@@ -14,8 +14,13 @@ $ npm i get-steady --save
 
 ## API
 ```js
-const getSteady = require('get-steady');
+const steady = require('get-steady');
+
+steady(fn, wait)
 ```
+
+- `fn`: the function need to be wrapper
+- `wait` wait time
 
 ## Changelog
 [CHANGELOG.md](CHANGELOG.md)
