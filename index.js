@@ -1,30 +1,18 @@
-/**
- * throttle
-
-function(){
-  arg = latest
-
-  last-execution-time
-  cur-time
-
-  if cur-time - last-execution-time
-
-}
- */
-
 function throttle(fn, wait, options) {
-  let checkTimer
-  let stopCheckTimer
-  let lastInvokeTime
+  var checkTimer
+  var stopCheckTimer
 
-  let lastCallTime
-  let lastThis
-  let lastArgs
+  // context
+  var lastThis
+  var lastArgs
+
+  // sequence
+  var called = 0
+  var invoked = 0
 
   function check() {
-    // 如果上次调用 & 现在之前有调用的话, 则调用一次
-    const now = Date.now()
-    if (lastCallTime > lastInvokeTime && lastCallTime <= now) {
+    // if there exists un invoked, time to invoke
+    if (invoked < called) {
       invoke()
     }
   }
@@ -33,25 +21,26 @@ function throttle(fn, wait, options) {
     clearInterval(checkTimer)
     checkTimer = null
     stopCheckTimer = null
+    check()
   }
 
   function invoke() {
-    lastInvokeTime = Date.now()
+    invoked = called
     return fn.apply(lastThis, lastArgs)
   }
 
   return function() {
-    lastCallTime = Date.now()
+    called++
     lastThis = this
     lastArgs = [].slice.call(arguments)
 
-    // 每次延后清除
-    clearTimeout(stopCheckTimer)
-    stopCheckTimer = setTimeout(stopCheck, wait)
-
+    // begin to check
     if (!checkTimer) {
       checkTimer = setInterval(check, wait)
-      return invoke()
     }
+
+    // debounce  stopCheck
+    clearTimeout(stopCheckTimer)
+    stopCheckTimer = setTimeout(stopCheck, wait)
   }
 }
