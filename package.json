@@ -28,6 +28,7 @@
     "eslint": "^4.8.0",
     "istanbul": "^1.1.0-alpha.1",
     "mocha": "^3.5.3",
+    "promise.sleep": "^0.2.0",
     "should": "^13.1.0"
   }
 }

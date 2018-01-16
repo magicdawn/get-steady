@@ -1,4 +1,4 @@
-function throttle(fn, wait, options) {
+module.exports = function steady(fn, wait, options) {
   var checkTimer
   var stopCheckTimer
 
